@@ -1,0 +1,17 @@
+ul
+{
+	list-style: none;
+	display:table-row;
+}
+
+li
+{
+	float: left;
+	padding: 20px;
+	display:table-row;
+}
+
+fieldset
+{
+	max-width: 850px;
+}
