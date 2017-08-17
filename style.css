@@ -6,24 +6,19 @@ body
   position: relative;
 }
 
-.menuBar ul
+nav
 {
-	list-style: none;
-	background-color: #FFFFFF;
-	float: right;
-	overflow: hidden;
+	border-bottom: 1px solid #d9dadb;
 }
 
-.menuBar li
+nav a
 {
-	text-align: center;
-	display: inline;
-	padding: 14px 16px;
+	color: #686868;
 }
 
 .logoPicture
 {
-	width: 10%;
+	width: 12%;
 }
 
 #logout
