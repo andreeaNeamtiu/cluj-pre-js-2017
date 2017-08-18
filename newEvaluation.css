@@ -25,10 +25,6 @@ fieldset
 {
 	width: 90%;
 }
-.fieldset-container
-{
-	
-}
 
 section
 {
@@ -37,10 +33,10 @@ section
 
 form
 {
-	flex-direction: column-reverse;
+	margin:0 auto;
 }
 
-footer 
+footer
 {
 	position: fixed;
 	bottom: 0;
@@ -106,9 +102,4 @@ th
 td
 {
 	padding: 17px;
-}
-
-.fieldsetContainer
-{
-	flex-direction: column-reverse;
 }
