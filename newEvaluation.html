@@ -3,18 +3,20 @@
 <head>
 	<title>New Evaluation</title>
 	<link rel="stylesheet" type="text/css" href="newEvaluation.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
 	<!-- Nav Bar -->
 	<nav>
 		<img class = "logoPicture" src = "./assets/logo.jpg">
 		<a href = "evaluations.html">Evaluations</a>
-		<a href = "newEvaluations.html">New Evaluations</a>
+		<a href = "newEvaluations.html">New Evaluation</a>
 		<a id = "logout" href = "logout.html">Logout</a>
 	</nav>
 	
 	<!-- Section1 -->
-	<div id = "fieldsetContainer">
+	<div class = "fieldset-container">
 	<form>
 	<section>
 		<input type = "name" name = "candidate" placeholder = "Candidate">
@@ -58,13 +60,13 @@
 	<!-- Section3 -->
 	<section>
 		<h5>Should the candidate be hired?</h5>
-		<textarea rows = "5" cols = "" placeholder = "The type of project that is suitable for the candidate.&#10;Is guidance required for the candidate"></textarea>
+		<textarea rows = "6" cols = "" placeholder = "The type of project that is suitable for the candidate.&#10;Is guidance required for the candidate"></textarea>
 	</section>
 	
 	<!-- Section4 -->
 	<section>
 		<h5>General Impression</h5>
-		<textarea rows = "5" cols = "" placeholder = "*required" required></textarea>
+		<textarea rows = "6" cols = "" placeholder = "*required" required></textarea>
 	</section>
 	
 	<!-- Section5 -->
@@ -381,10 +383,6 @@
 				</ul>
 			</fieldset>
 			<button id = "submitButton" type = "submit" name = "submit">SUBMIT</button>
-			<br>
-			<br>
-			<br>
-			<br>
 	</section>
 	</form>
 	</div>
