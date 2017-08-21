@@ -17,16 +17,16 @@
 	
 	<!-- Section1 -->
 	<div class = "fieldset-container">
-	<form>
+	<form method=POST action=action.php>
 	<section>
 		<input type = "name" name = "candidate" placeholder = "Candidate">
 		<input type = "name" name = "interviewer" placeholder = "Interviewer">
-		<input type = "date" name = "date" placeholder = date()>
+		<input type = "date" name = "date">
 	</section>
 	
 	<!-- Section2 -->
 	<section>
-		<h5>Technical Level</h5>
+		<h2>Technical Level</h2>
 		<table>
 			<tr>
 				<th>Trainee</th>
@@ -36,22 +36,22 @@
 			</tr>
 			<tr class = "radioButtons">
 				<td>
-					<input type = "radio" name = "trainee" value = "trainee">
+					<input type = "radio" name = "technicalLevel" value = "trainee">
 				</td>
 				<td>
-					<input type = "radio" name = "junior" value = "junior1">
-					<input type = "radio" name = "junior" value = "junior2">
-					<input type = "radio" name = "junior" value = "junior3">
+					<input type = "radio" name = "technicalLevel" value = "junior1">
+					<input type = "radio" name = "technicalLevel" value = "junior2">
+					<input type = "radio" name = "technicalLevel" value = "junior3">
 				</td>
 				<td>
-					<input type = "radio" name = "middle" value = "middle1">
-					<input type = "radio" name = "middle" value = "middle2">
-					<input type = "radio" name = "middle" value = "middle3">
+					<input type = "radio" name = "technicalLevel" value = "middle1">
+					<input type = "radio" name = "technicalLevel" value = "middle2">
+					<input type = "radio" name = "technicalLevel" value = "middle3">
 				</td>
 				<td>
-					<input type = "radio" name = "senior" value "senior1">
-					<input type = "radio" name = "senior" value "senior2">
-					<input type = "radio" name = "senior" value "senior3">
+					<input type = "radio" name = "technicalLevel" value "senior1">
+					<input type = "radio" name = "technicalLevel" value "senior2">
+					<input type = "radio" name = "technicalLevel" value "senior3">
 				</td>
 			</tr>
 		</table>
@@ -59,19 +59,19 @@
 	
 	<!-- Section3 -->
 	<section>
-		<h5>Should the candidate be hired?</h5>
+		<h2>Should the candidate be hired?</h2>
 		<textarea rows = "6" cols = "" placeholder = "The type of project that is suitable for the candidate.&#10;Is guidance required for the candidate"></textarea>
 	</section>
 	
 	<!-- Section4 -->
 	<section>
-		<h5>General Impression</h5>
+		<h2>General Impression</h2>
 		<textarea rows = "6" cols = "" placeholder = "*required" required></textarea>
 	</section>
 	
 	<!-- Section5 -->
 	<section>
-		<h5>Workflow, Leadership & Soft Skills</h5>
+		<h2>Workflow, Leadership &amp; Soft Skills</h2>
 		<textarea rows = "5" cols = "" placeholder = "Describe the environment in which the candidate works.&#10;Describe any guidance or management experience."></textarea>
 	</section>
 	
@@ -165,7 +165,7 @@
 						</select>
 					</li>
 					<li>
-						<label>Sessions & Cookies</label>
+						<label>Sessions &amp; Cookies</label>
 						<select name = "sessionsCookies">
 							<option disabled>Evaluation</option>
 						</select>
@@ -255,7 +255,7 @@
 				<legend>Javascript</legend>
 				<ul>
 					<li>
-						<label>Data types & variables</label>
+						<label>Data types &amp; variables</label>
 						<select name = "dataTypesVariables">
 							<option disabled>Evaluation</option>
 						</select>
@@ -291,7 +291,7 @@
 						</select>
 					</li>
 					<li>
-						<label>Prototype & OOP</label>
+						<label>Prototype &amp; OOP</label>
 						<select name = "prototypeoop">
 							<option disabled>Evaluation</option>
 						</select>

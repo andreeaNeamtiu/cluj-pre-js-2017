@@ -1,7 +1,11 @@
+body{
+    background-color: #fafafa;
+    max-width: 100%;
+}
+
 /* style for header */
 .logoPicture
 {
-	
 	width: 100px;
 	margin-top: 10px;
 	padding: 0px 100px 0px 30px;
@@ -33,7 +37,8 @@ a:hover
 }
 
 /* style for footer */
-footer {
+footer 
+{
 	position: fixed;
 	bottom: 0;
 	background-color: #efefef;
@@ -45,5 +50,5 @@ footer {
 
 footer p
 {
-	margin-right: 17%;
+	margin: 10px 100px;
 }
