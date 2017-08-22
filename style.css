@@ -14,14 +14,6 @@ body
 	float: right;
 }
 
-button
-{
-	border-radius: 50%;
-	background-color: #03A9F4;
-	color: #FFFFFF;
-	border: 0;
-}
-
 table
 {
 	margin: 100px auto 0 auto;
@@ -52,4 +44,12 @@ td
 .table-heading-details
 {
 	width: 60px;
+}
+
+button
+{
+	border-radius: 50%;
+	background-color: #03A9F4;
+	color: #FFFFFF;
+	border: 0;
 }
