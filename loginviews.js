@@ -56,7 +56,6 @@ const LoginPage = function(options) {
         ${SubmitFeedbackResults()}
         ${Footer()}
     `;
-
 }
 
 window.onload = function() {
