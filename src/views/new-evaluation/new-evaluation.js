@@ -125,93 +125,73 @@ function technicalLevel (options={}) {
     `;
 }
 
-function textareaSection (option={}) {
+function textarea (options={}) {
     return `
-    <!-- Section3 -->
-	<section>
-		<h2>Should the candidate be hired?</h2>
-		<textarea rows = "6" cols = "" placeholder = "The type of project that is suitable for the candidate.&#10;Is guidance required for the candidate"></textarea>
-	</section>
-	
-	<!-- Section4 -->
-	<section>
-		<h2>General Impression</h2>
-		<textarea rows = "6" cols = "" placeholder = "*required" required></textarea>
-	</section>
-	
-	<!-- Section5 -->
-	<section>
-		<h2>Workflow, Leadership &amp; Soft Skills</h2>
-		<textarea rows = "5" cols = "" placeholder = "Describe the environment in which the candidate works.&#10;Describe any guidance or management experience."></textarea>
-	</section>
+    <section>
+        <h2>${options.header}</h2>
+        <textarea rows = "6" cols = "" placeholder = "${options.placeholder}"></textarea>
+    </section>
     `;
 }
+
+function textareaSection (options={}) {
+    return `
+    ${textarea({
+        header: 'Should the candidate be hired?',
+        placeholder: 'The type of project that is suitable for the candidate. &#10; Is guidance required for the candidate'
+      })}
+    ${textarea({
+        header: 'General Impression',
+        placeholder: '*required'
+      })}
+    ${textarea({
+        header: 'Workflow, Leadership &amp; Soft Skills',
+        placeholder: 'Describe the environment in which the candidate works. &#10; Describe any guidance or management experience.'
+      })}
+    `;
+}
+
+function listItem (options={}) {
+    /*const optionTag = options.items.map(function(optionsTag){
+        return fieldset(optionsTag)
+    })
+    const elem = optionTag.join('');*/
+    return `
+    <li>
+        <label>${options.label}</label>
+        <select name = "classes">
+            <option disabled></option>
+        </select>
+    </li>
+    `;
+}
+
 function fieldsetSection (options={}) {
+    const data = {
+
+        legend: 'OOP, Design Patterns',
+        label: 'Classes',
+        items: ['Evaluation']
+    };
+    
     return `
-    ${fieldsetSection1()}
-    ${fieldsetSection2()}
-    ${fieldsetSection3()}
-    ${fieldsetSection4()}
-    ${fieldsetSection5()}
-    ${fieldsetSection6()}
+    ${fieldset(data)}
+    ${fieldset(data)}
+    ${fieldset(data)}
+    ${fieldset(data)}
+    ${fieldset(data)}
+    ${fieldset(data)}
     `;
 }
-function fieldsetSection1 (options={}) {
+function fieldset (options={}) {
     return `
     <!-- Section6 -->
-			<fieldset>
-				<legend>OOP, Design Patterns</legend>
-				<ul>
-					<li>
-						<label>Classes</label>
-						<select name = "classes">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Exception handling</label>
-						<select name = "exceptionHandling">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Version Control</label>
-						<select name = "versionControl">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Access modifiers</label>
-						<select name = "accessModifiers">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Design Patterns</label>
-						<select name = "designPatterns">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Issue Tracking</label>
-						<select name = "issueTracking">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Polymorphism</label>
-						<select name = "polymorphism">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>RegEx</label>
-						<select name = "regEx">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-				</ul>
-			</fieldset>
+    <fieldset>
+        <legend>${options.legend}</legend>
+        <ul>
+            ${listItem({label: options.label, items: options.items})}
+        </ul>
+    </fieldset>
     `;
 }
 
