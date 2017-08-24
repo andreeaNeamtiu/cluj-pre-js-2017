@@ -1,10 +1,67 @@
 function newEvaluationPage (options) {
     const newOptions = options || {};
 
+    const technicalLevelElements =  {
+        title: 'Technical Level',
+        headers: ['Trainee', 'Junior', 'Middle', 'Senior'],
+        columnData: [
+          {
+            inputLevels: ['trainee']
+          },
+          
+          {
+            inputLevels: ['junior1', 'junior2', 'junior3']
+          },
+          
+          {
+            inputLevels: ['middle1', 'middle2', 'middle3']
+          },
+          
+          {
+            inputLevels: ['senior1', 'senior2', 'senior3']
+          }
+        ]
+      }
+
+    const textareaSectionElements = [
+        {
+          header: 'Should the candidate be hired?',
+          placeholder: 'The type of project that is suitable for the candidate. &#10; Is guidance required for the candidate'
+        },
+        {
+          header: 'General Impression',
+          placeholder: '*required'
+        },
+        {
+          header: 'Workflow, Leadership &amp; Soft Skills',
+          placeholder: 'Describe the environment in which the candidate works. &#10; Describe any guidance or management experience.'
+        }
+      ]
+
     return `
     ${NAV()}
-    ${newEvaluationBody()}
+    ${newEvaluationBody(
+        technicalLevelElements
+    )}
     ${Footer()}
+    `;
+}
+
+function newEvaluationBody (options={}) {
+    return `
+    <!-- Section1 -->
+	<div class = "fieldset-container">
+        <form method="POST" action="action.php">
+        
+        ${inputSection()}
+        ${technicalLevel(options)}
+        ${textareaSection()}
+            <section>
+                ${fieldsetSection()}
+                <button id = "submitButton" type = "submit" name = "submit">SUBMIT</button>
+            </section>
+        </form>
+	</div>
     `;
 }
 
@@ -17,39 +74,52 @@ function inputSection (options={}) {
     </section>
     `;
 }
+function technicalLevelTableHeader (options={}) {
 
+    const headerElements = options.map(function(header) {
+        return `
+            <th>${header}</th>
+        `;
+    })
+    return headerElements.join('');
+}
+
+function technicalLevelTableColumn (options={}) {
+    const column = options.inputLevels.map(function(input) {
+        return `
+        <input type = "radio" name = "technicalLevel" value = "${input}">
+        `;
+    }) 
+    return`
+    <td>
+        ${column.join('')}
+    </td>
+    `;
+}
+
+function technicalLevelTableBody (options={}) {
+
+    const inputElements = options.map(function(items) {
+        return technicalLevelTableColumn(items);
+    })
+    const row = inputElements.join('');
+   return `
+    <tr class = "radioButtons">
+    ${inputElements}
+    </tr>
+    `;
+}
 function technicalLevel (options={}) {
     return `
     <!-- Section2 -->
 	<section>
-		<h2>Technical Level</h2>
+		<h2>${options.title}</h2>
 		<table>
-			<tr>
-				<th>Trainee</th>
-				<th>Junior</th>
-				<th>Middle</th>
-				<th>Senior</th>
-			</tr>
-			<tr class = "radioButtons">
-				<td>
-					<input type = "radio" name = "technicalLevel" value = "trainee">
-				</td>
-				<td>
-					<input type = "radio" name = "technicalLevel" value = "junior1">
-					<input type = "radio" name = "technicalLevel" value = "junior2">
-					<input type = "radio" name = "technicalLevel" value = "junior3">
-				</td>
-				<td>
-					<input type = "radio" name = "technicalLevel" value = "middle1">
-					<input type = "radio" name = "technicalLevel" value = "middle2">
-					<input type = "radio" name = "technicalLevel" value = "middle3">
-				</td>
-				<td>
-					<input type = "radio" name = "technicalLevel" value "senior1">
-					<input type = "radio" name = "technicalLevel" value "senior2">
-					<input type = "radio" name = "technicalLevel" value "senior3">
-				</td>
-			</tr>
+        <tr>
+            ${technicalLevelTableHeader(options.headers)}
+        </tr>
+            ${technicalLevelTableBody(options.columnData)}
+			
 		</table>
 	</section>
     `;
@@ -417,23 +487,7 @@ function fieldsetSection6(options={}) {
     `;
 }
 
-function newEvaluationBody (options={}) {
-    return `
-    <!-- Section1 -->
-	<div class = "fieldset-container">
-        <form method="POST" action="action.php">
-        
-        ${inputSection()}
-        ${technicalLevel()}
-        ${textareaSection()}
-            <section>
-                ${fieldsetSection()}
-                <button id = "submitButton" type = "submit" name = "submit">SUBMIT</button>
-            </section>
-        </form>
-	</div>
-    `;
-}
+
 
 window.onload = function() {
     const appEl = document.querySelector('#app');
