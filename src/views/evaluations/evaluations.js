@@ -93,7 +93,7 @@ function EvaluationsTable(options={}) {
 
         ${EvaluationTableBody({
             items: options.items
-        })}  
+        })}
 
         </table>
         </div>

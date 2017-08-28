@@ -1,430 +1,249 @@
-function newEvaluationPage (options) {
+function newEvaluationPage(options) {
     const newOptions = options || {};
+
+    const technicalLevelElements = {
+        title: 'Technical Level',
+        headers: ['Trainee', 'Junior', 'Middle', 'Senior'],
+        columnData: [
+            {
+                inputLevels: ['trainee'],
+            },
+
+            {
+                inputLevels: ['junior1', 'junior2', 'junior3'],
+            },
+
+            {
+                inputLevels: ['middle1', 'middle2', 'middle3'],
+            },
+
+            {
+                inputLevels: ['senior1', 'senior2', 'senior3'],
+            },
+        ],
+    };
+
+    const textareaSectionElements = [
+        {
+            header: 'Should the candidate be hired?',
+            placeholder: 'The type of project that is suitable for the candidate. &#10; Is guidance required for the candidate',
+        },
+        {
+            header: 'General Impression',
+            placeholder: '*required',
+        },
+        {
+            header: 'Workflow, Leadership &amp; Soft Skills',
+            placeholder: 'Describe the environment in which the candidate works. &#10; Describe any guidance or management experience.',
+        },
+    ];
+
+    const fieldsetSectionElements = {
+        data: [{
+            groupName: 'OOP, Design Patterns',
+            items: [{
+                label: 'Classes',
+                name: 'classes',
+            },
+            {
+                label: 'Exception handling',
+                name: 'exceptionHandling',
+            },
+            {
+                label: 'Version Control',
+                name: 'versionControl',
+            },
+            {
+                label: 'Access Modifiers',
+                name: 'accessModifier',
+            },
+            {
+                label: 'Design Patterns',
+                name: 'designPatterns',
+            },
+            {
+                label: 'Issue Tracking',
+                name: 'issueTracking',
+            },
+            {
+                label: 'Polymorphism',
+                name: 'polymorphism',
+            },
+            {
+                label: 'RegEx',
+                name: 'regEx',
+            }],
+        },
+        {
+            groupName: 'HTTP',
+            items: [{
+                label: 'Protocol',
+                name: 'protocol',
+            },
+            {
+                label: 'Response Codes',
+                name: 'responseCodes',
+            },
+            {
+                label: 'REST',
+                name: 'rest',
+            },
+            {
+                label: 'Headers',
+                name: 'headers',
+            },
+            {
+                label: 'Request Methods',
+                name: 'requestMethods',
+            },
+            {
+                label: 'Sessions &amp; Cookies',
+                name: 'sessions',
+            }],
+        },
+        {
+            groupName: 'HTML',
+            items: [{
+                label: 'Doctype',
+                name: 'doctype',
+            },
+            {
+                label: 'Tags',
+                name: 'tags',
+            },
+            {
+                label: 'Basic SEO',
+                name: 'basicSeo',
+            },
+            {
+                label: 'Syntax rules',
+                name: 'syntaxRules',
+            },
+            {
+                label: 'Attributes',
+                name: 'attributes',
+            }],
+        },
+        {
+            groupName: 'CSS',
+            items: [{
+                label: 'Usage',
+                name: 'usage',
+            },
+            {
+                label: 'Box Modeling',
+                name: 'boxModeling',
+            },
+            {
+                label: 'CSS 3.0',
+                name: 'css',
+            },
+            {
+                label: 'Selectors',
+                name: 'selectors',
+            },
+            {
+                label: 'Styling',
+                name: 'styling',
+            }, {
+                label: 'Dynamic stylesheet',
+                name: 'dynamicStylesheet',
+            }],
+        },
+        {
+            groupName: 'Javascript',
+            items: [{
+                label: 'Data types &amp; variables',
+                name: 'dataTypesAndVariables',
+            },
+            {
+                label: 'Object Manipulation',
+                name: 'objectManipulation',
+            },
+            {
+                label: 'DOM Manipulation',
+                name: 'domManipulation',
+            },
+            {
+                label: 'Functions',
+                name: 'functions',
+            },
+            {
+                label: 'Templating',
+                name: 'templating',
+            }, {
+                label: 'Event Handling',
+                name: 'eventHandling',
+            }, {
+                label: 'Prototype &amp; OOP',
+                name: 'prototype',
+            }, {
+                label: 'Testing(unit, E2E)',
+                name: 'testing',
+            }, {
+                label: 'AJAX',
+                name: 'ajax',
+            }, {
+                label: 'Debugging',
+                name: 'debugging',
+            }, {
+                label: 'Websockets',
+                name: 'websockets',
+            }, {
+                label: 'Tooling',
+                name: 'tooling',
+            }, {
+                label: 'Libraries',
+                name: 'libraries',
+            }, {
+                label: 'Promises',
+                name: 'promises',
+            }, {
+                label: 'Browser Engines',
+                name: 'browserEngines',
+            }, {
+                label: 'Frameworks',
+                name: 'frameworks',
+            }],
+        },
+        {
+            groupName: 'NodeJs',
+            items: [{
+                label: 'Backend frameworks',
+                name: 'backendFrameworks',
+            },
+            {
+                label: 'Templating',
+                name: 'templating',
+            },
+            {
+                label: 'DOM Manipulation',
+                name: 'domM',
+            },
+            {
+                label: 'Unit Testing',
+                name: 'unitTesting',
+            }],
+        }],
+    };
 
     return `
     ${NAV()}
-    ${newEvaluationBody()}
+    ${newEvaluationBody(
+        technicalLevelElements,
+    )}
     ${Footer()}
     `;
 }
 
-function inputSection (options={}) {
-    return `
-    <section>
-        <input type = "name" name = "candidate" placeholder = "Candidate">
-        <input type = "name" name = "interviewer" placeholder = "Interviewer">
-        <input type = "date" name = "date">
-    </section>
-    `;
-}
-
-function technicalLevel (options={}) {
-    return `
-    <!-- Section2 -->
-	<section>
-		<h2>Technical Level</h2>
-		<table>
-			<tr>
-				<th>Trainee</th>
-				<th>Junior</th>
-				<th>Middle</th>
-				<th>Senior</th>
-			</tr>
-			<tr class = "radioButtons">
-				<td>
-					<input type = "radio" name = "technicalLevel" value = "trainee">
-				</td>
-				<td>
-					<input type = "radio" name = "technicalLevel" value = "junior1">
-					<input type = "radio" name = "technicalLevel" value = "junior2">
-					<input type = "radio" name = "technicalLevel" value = "junior3">
-				</td>
-				<td>
-					<input type = "radio" name = "technicalLevel" value = "middle1">
-					<input type = "radio" name = "technicalLevel" value = "middle2">
-					<input type = "radio" name = "technicalLevel" value = "middle3">
-				</td>
-				<td>
-					<input type = "radio" name = "technicalLevel" value "senior1">
-					<input type = "radio" name = "technicalLevel" value "senior2">
-					<input type = "radio" name = "technicalLevel" value "senior3">
-				</td>
-			</tr>
-		</table>
-	</section>
-    `;
-}
-
-function textareaSection (option={}) {
-    return `
-    <!-- Section3 -->
-	<section>
-		<h2>Should the candidate be hired?</h2>
-		<textarea rows = "6" cols = "" placeholder = "The type of project that is suitable for the candidate.&#10;Is guidance required for the candidate"></textarea>
-	</section>
-	
-	<!-- Section4 -->
-	<section>
-		<h2>General Impression</h2>
-		<textarea rows = "6" cols = "" placeholder = "*required" required></textarea>
-	</section>
-	
-	<!-- Section5 -->
-	<section>
-		<h2>Workflow, Leadership &amp; Soft Skills</h2>
-		<textarea rows = "5" cols = "" placeholder = "Describe the environment in which the candidate works.&#10;Describe any guidance or management experience."></textarea>
-	</section>
-    `;
-}
-function fieldsetSection (options={}) {
-    return `
-    ${fieldsetSection1()}
-    ${fieldsetSection2()}
-    ${fieldsetSection3()}
-    ${fieldsetSection4()}
-    ${fieldsetSection5()}
-    ${fieldsetSection6()}
-    `;
-}
-function fieldsetSection1 (options={}) {
-    return `
-    <!-- Section6 -->
-			<fieldset>
-				<legend>OOP, Design Patterns</legend>
-				<ul>
-					<li>
-						<label>Classes</label>
-						<select name = "classes">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Exception handling</label>
-						<select name = "exceptionHandling">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Version Control</label>
-						<select name = "versionControl">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Access modifiers</label>
-						<select name = "accessModifiers">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Design Patterns</label>
-						<select name = "designPatterns">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Issue Tracking</label>
-						<select name = "issueTracking">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>Polymorphism</label>
-						<select name = "polymorphism">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-					<li>
-						<label>RegEx</label>
-						<select name = "regEx">
-							<option disabled>Evaluation</option>
-						</select>
-					</li>
-				</ul>
-			</fieldset>
-    `;
-}
-
-function fieldsetSection2 (options={}) {
-    return`
-    <fieldset>
-    <legend>HTTP</legend>
-    <ul>
-        <li>
-            <label>Protocol</label>
-            <select name = "protocol">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Response codes</label>
-            <select name = "responseCodes">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>REST</label>
-            <select name = "rest">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Headers</label>
-            <select name = "headers">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Request methods</label>
-            <select name = "requestMethods">
-                <option disabled">Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Sessions &amp; Cookies</label>
-            <select name = "sessionsCookies">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-    </ul>
-</fieldset>
-    `;
-}
-
-function fieldsetSection3(options={}) {
-    return `
-    <fieldset>
-    <legend>HTML</legend>
-    <ul>
-        <li>
-            <label>Doctype</label>
-            <select name = "doctype">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Tags</label>
-            <select name = "tags">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Basic SEO</label>
-            <select name = "basicseo">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Syntax rules</label>
-            <select name = "syntaxRules">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Attributes</label>
-            <select name = "attributes">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-    </ul>
-    </fieldset>
-    `;
-}
-
-function fieldsetSection4(options={}) {
-    return `
-    <fieldset>
-    <legend>CSS</legend>
-    <ul>
-        <li>
-            <label>Usage</label>
-            <select name = "usage">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Box modeling</label>
-            <select name = "boxModeling">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>CSS 3.0</label>
-            <select name = "css">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Selectors</label>
-            <select name = "selectors">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Styling</label>
-            <select name = "styling">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Dynamic Stylesheets</label>
-            <select name = "dynamicStylesheets">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-    </ul>
-</fieldset>
-    `;
-}
-
-function fieldsetSection5(options={}) {
-    return `
-    <fieldset>
-    <legend>Javascript</legend>
-    <ul>
-        <li>
-            <label>Data types &amp; variables</label>
-            <select name = "dataTypesVariables">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Object manipulation</label>
-            <select name = "objectManipulation">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>DOM Manipulation</label>
-            <select name = "domManipulation">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Functions</label>
-            <select name = "functions">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Templating</label>
-            <select name = "templating">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Event Handling</label>
-            <select name = "eventHandling">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Prototype &amp; OOP</label>
-            <select name = "prototypeoop">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Testing (unit, E2E)</label>
-            <select name = "testing">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>AJAX</label>
-            <select name = "ajax">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Debugging</label>
-            <select name = "debugging">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Websockets</label>
-            <select name = "websockets">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Tooling</label>
-            <select name = "tooling">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Libraries</label>
-            <select name = "libraries">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Promises</label>
-            <select name = "promises">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Browser Engines</label>
-            <select name = "browserEngines">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Frameworks</label>
-            <select name = "frameworks">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-    </ul>
-</fieldset>
-    `;
-}
-
-function fieldsetSection6(options={}) {
-    return `
-    <fieldset>
-    <legend>NodeJS</legend>
-    <ul>
-        <li>
-            <label>Backend frameworks</label>
-            <select name = "backendFrameworks">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Templating</label>
-            <select name = "templating">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>DOM Manipulation</label>
-            <select name = "domManipulation">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-        <li>
-            <label>Unit Testing</label>
-            <select name = "unitTesting">
-                <option disabled>Evaluation</option>
-            </select>
-        </li>
-    </ul>
-</fieldset>
-    `;
-}
-
-function newEvaluationBody (options={}) {
+function newEvaluationBody(options = {}) {
     return `
     <!-- Section1 -->
 	<div class = "fieldset-container">
         <form method="POST" action="action.php">
         
         ${inputSection()}
-        ${technicalLevel()}
+        ${technicalLevel(options)}
         ${textareaSection()}
             <section>
                 ${fieldsetSection()}
@@ -435,7 +254,388 @@ function newEvaluationBody (options={}) {
     `;
 }
 
-window.onload = function() {
+function inputSection(options = {}) {
+    return `
+    <section>
+        <input type = "name" name = "candidate" placeholder = "Candidate">
+        <input type = "name" name = "interviewer" placeholder = "Interviewer">
+        <input type = "date" name = "date">
+    </section>
+    `;
+}
+
+function technicalLevelTableHeader(options = {}) {
+    const headerElements = options.map((header) => {
+        return `
+            <th>${header}</th>
+        `;
+    });
+    return headerElements.join('');
+}
+
+function technicalLevelTableColumn(options = {}) {
+    const column = options.inputLevels.map((input) => {
+        return `
+        <input type = "radio" name = "technicalLevel" value = "${input}">
+        `;
+    });
+    return `
+    <td>
+        ${column.join('')}
+    </td>
+    `;
+}
+
+function technicalLevelTableBody(options = {}) {
+    const inputElements = options.map((items) => {
+        return technicalLevelTableColumn(items);
+    });
+    const row = inputElements.join('');
+    return `
+    <tr class = "radioButtons">
+    ${inputElements}
+    </tr>
+    `;
+}
+
+function technicalLevel(options = {}) {
+    return `
+    <!-- Section2 -->
+	<section>
+		<h2>${options.title}</h2>
+		<table>
+        <tr>
+            ${technicalLevelTableHeader(options.headers)}
+        </tr>
+            ${technicalLevelTableBody(options.columnData)}
+			
+		</table>
+	</section>
+    `;
+}
+
+function textarea(options = {}) {
+    return `
+    <section>
+        <h2>${options.header}</h2>
+        <textarea rows = "6" cols = "" placeholder = "${options.placeholder}"></textarea>
+    </section>
+    `;
+}
+
+function textareaSection(options = {}) {
+    return `
+    ${textarea({
+        header: 'Should the candidate be hired?',
+        placeholder: 'The type of project that is suitable for the candidate. &#10; Is guidance required for the candidate',
+    })}
+    ${textarea({
+        header: 'General Impression',
+        placeholder: '*required',
+    })}
+    ${textarea({
+        header: 'Workflow, Leadership &amp; Soft Skills',
+        placeholder: 'Describe the environment in which the candidate works. &#10; Describe any guidance or management experience.',
+    })}
+    `;
+}
+
+function listItem(options = {}) {
+    const optionTag = options.map((el) => {
+        const optionElement = el.option.map((elem) => {
+            return `
+            <option>${elem}</option>
+            `;
+        })
+
+        return `
+        <li>
+            <label>${el.label}</label>
+            <select name="${el.name}">
+                <option disabled>Elements</option>
+                ${optionElement.join('')}
+            </select>
+        </li>
+        `;
+        
+    });
+
+    return optionTag.join('');
+}
+
+function fieldsetSection(options = {}) {
+    const fieldsetSectionElement = {
+        data: [{
+            legend: 'OOP, Design Patterns',
+            items: [{
+                label: 'Classes',
+                name: 'classes',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Exception handling',
+                name: 'exceptionHandling',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Version Control',
+                name: 'versionControl',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Access Modifiers',
+                name: 'accessModifier',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Design Patterns',
+                name: 'designPatterns',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Issue Tracking',
+                name: 'issueTracking',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Polymorphism',
+                name: 'polymorphism',
+                option: ['1','2','3']
+            },
+            {
+                label: 'RegEx',
+                name: 'regEx',
+                option: ['1','2','3']
+            }],
+        },
+        {
+            legend: 'HTTP',
+            items: [{
+                label: 'Protocol',
+                name: 'protocol',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Response Codes',
+                name: 'responseCodes',
+                option: ['1','2','3']
+            },
+            {
+                label: 'REST',
+                name: 'rest',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Headers',
+                name: 'headers',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Request Methods',
+                name: 'requestMethods',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Sessions &amp; Cookies',
+                name: 'sessions',
+                option: ['1','2','3']
+            }],
+        },
+        {
+            legend: 'HTML',
+            items: [{
+                label: 'Doctype',
+                name: 'doctype',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Tags',
+                name: 'tags',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Basic SEO',
+                name: 'basicSeo',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Syntax rules',
+                name: 'syntaxRules',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Attributes',
+                name: 'attributes',
+                option: ['1','2','3']
+            }]
+        }, 
+        {
+            legend: 'CSS',
+            items: [{
+                label: 'Usage',
+                name: 'usage',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Box Modeling',
+                name: 'boxModeling',
+                option: ['1','2','3']
+            },
+            {
+                label: 'CSS 3.0',
+                name: 'css',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Selectors',
+                name: 'selectors',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Styling',
+                name: 'styling',
+                option: ['1','2','3']
+            }, 
+            {
+                label: 'Dynamic stylesheet',
+                name: 'dynamicStylesheet',
+                option: ['1','2','3']
+            }]
+        }, 
+        {
+            legend: 'Javascript',
+            items: [{
+                label: 'Data types &amp; variables',
+                name: 'dataTypesAndVariables',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Object Manipulation',
+                name: 'objectManipulation',
+                option: ['1','2','3']
+            },
+            {
+                label: 'DOM Manipulation',
+                name: 'domManipulation',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Functions',
+                name: 'functions',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Templating',
+                name: 'templating',
+                option: ['1','2','3']
+            }, {
+                label: 'Event Handling',
+                name: 'eventHandling',
+                option: ['1','2','3']
+            }, {
+                label: 'Prototype &amp; OOP',
+                name: 'prototype',
+                option: ['1','2','3']
+            }, {
+                label: 'Testing(unit, E2E)',
+                name: 'testing',
+                option: ['1','2','3']
+            }, {
+                label: 'AJAX',
+                name: 'ajax',
+                option: ['1','2','3']
+            }, {
+                label: 'Debugging',
+                name: 'debugging',
+                option: ['1','2','3']
+            }, {
+                label: 'Websockets',
+                name: 'websockets',
+                option: ['1','2','3']
+            }, {
+                label: 'Tooling',
+                name: 'tooling',
+                option: ['1','2','3']
+            }, {
+                label: 'Libraries',
+                name: 'libraries',
+                option: ['1','2','3']
+            }, {
+                label: 'Promises',
+                name: 'promises',
+                option: ['1','2','3']
+            }, {
+                label: 'Browser Engines',
+                name: 'browserEngines',
+                option: ['1','2','3']
+            }, {
+                label: 'Frameworks',
+                name: 'frameworks',
+                option: ['1','2','3']
+            }]
+        }, 
+        {
+            legend: 'NodeJs',
+            items: [{
+                label: 'Backend frameworks',
+                name: 'backendFrameworks',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Templating',
+                name: 'templating',
+                option: ['1','2','3']
+            },
+            {
+                label: 'DOM Manipulation',
+                name: 'domM',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Unit Testing',
+                name: 'unitTesting',
+                option: ['1','2','3']
+            }]
+        }],
+    };
+    /*
+    function fieldset(p) {
+        return `<div>${p.legend}</div>`
+    }*/
+
+    const elements = fieldsetSectionElement.data.map(function(object) {
+        return fieldset(object) ;
+    });
+
+    return elements.join('');
+}
+    /*
+    fieldsetSectionElement.data = [obj1, onj2]
+    elements = []
+    
+    1 iteration
+    object => obj1
+    elements => ['<div>OOP, Design Patterns</div>']
+
+    2 iteration
+    object => obj2
+    elements => ['<div>OOP, Design Patterns</div>', '<div><HTTP/div>']
+    */
+
+function fieldset(options = {}) {
+/*alert(listItem(options.items))*/
+    return `
+    <fieldset>
+        <legend>${options.legend}</legend>
+        <ul>
+            ${listItem(options.items)}
+        </ul>
+    </fieldset>
+    `;
+}
+
+window.onload = function () {
     const appEl = document.querySelector('#app');
     appEl.innerHTML = newEvaluationPage();
 }
+;
