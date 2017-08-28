@@ -240,7 +240,7 @@ function newEvaluationBody(options = {}) {
     return `
     <!-- Section1 -->
 	<div class = "fieldset-container">
-        <form method="POST" action="action.php">
+        <form id="formGroup" method="POST" action="action.php">
         
         ${inputSection()}
         ${technicalLevel(options)}
@@ -637,5 +637,6 @@ function fieldset(options = {}) {
 window.onload = function () {
     const appEl = document.querySelector('#app');
     appEl.innerHTML = newEvaluationPage();
+    formEventsSetup();
 }
 ;
