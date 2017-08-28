@@ -340,31 +340,27 @@ function textareaSection(options = {}) {
     `;
 }
 
-
-
 function listItem(options = {}) {
-    const optionTag = options.map((optionsTag) => {
-        const optionElement = optionTag.option.map((elem) {
+    const optionTag = options.map((el) => {
+        const optionElement = el.option.map((elem) => {
             return `
-            ${elem}
+            <option>${elem}</option>
             `;
         })
-        
-        return
-        `
-        <option>${optionElement}</option>
+
+        return `
+        <li>
+            <label>${el.label}</label>
+            <select name="${el.name}">
+                <option disabled>Elements</option>
+                ${optionElement.join('')}
+            </select>
+        </li>
         `;
+        
     });
-    const elements = optionTag.join('');
-    return `
-    <li>
-        <label>${options.label}</label>
-        <select name="${options.name}">
-            <option disabled>Elements</option>
-            ${elements}
-        </select>
-    </li>
-    `;
+
+    return optionTag.join('');
 }
 
 function fieldsetSection(options = {}) {
@@ -444,6 +440,162 @@ function fieldsetSection(options = {}) {
                 name: 'sessions',
                 option: ['1','2','3']
             }],
+        },
+        {
+            legend: 'HTML',
+            items: [{
+                label: 'Doctype',
+                name: 'doctype',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Tags',
+                name: 'tags',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Basic SEO',
+                name: 'basicSeo',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Syntax rules',
+                name: 'syntaxRules',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Attributes',
+                name: 'attributes',
+                option: ['1','2','3']
+            }]
+        }, 
+        {
+            legend: 'CSS',
+            items: [{
+                label: 'Usage',
+                name: 'usage',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Box Modeling',
+                name: 'boxModeling',
+                option: ['1','2','3']
+            },
+            {
+                label: 'CSS 3.0',
+                name: 'css',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Selectors',
+                name: 'selectors',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Styling',
+                name: 'styling',
+                option: ['1','2','3']
+            }, 
+            {
+                label: 'Dynamic stylesheet',
+                name: 'dynamicStylesheet',
+                option: ['1','2','3']
+            }]
+        }, 
+        {
+            legend: 'Javascript',
+            items: [{
+                label: 'Data types &amp; variables',
+                name: 'dataTypesAndVariables',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Object Manipulation',
+                name: 'objectManipulation',
+                option: ['1','2','3']
+            },
+            {
+                label: 'DOM Manipulation',
+                name: 'domManipulation',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Functions',
+                name: 'functions',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Templating',
+                name: 'templating',
+                option: ['1','2','3']
+            }, {
+                label: 'Event Handling',
+                name: 'eventHandling',
+                option: ['1','2','3']
+            }, {
+                label: 'Prototype &amp; OOP',
+                name: 'prototype',
+                option: ['1','2','3']
+            }, {
+                label: 'Testing(unit, E2E)',
+                name: 'testing',
+                option: ['1','2','3']
+            }, {
+                label: 'AJAX',
+                name: 'ajax',
+                option: ['1','2','3']
+            }, {
+                label: 'Debugging',
+                name: 'debugging',
+                option: ['1','2','3']
+            }, {
+                label: 'Websockets',
+                name: 'websockets',
+                option: ['1','2','3']
+            }, {
+                label: 'Tooling',
+                name: 'tooling',
+                option: ['1','2','3']
+            }, {
+                label: 'Libraries',
+                name: 'libraries',
+                option: ['1','2','3']
+            }, {
+                label: 'Promises',
+                name: 'promises',
+                option: ['1','2','3']
+            }, {
+                label: 'Browser Engines',
+                name: 'browserEngines',
+                option: ['1','2','3']
+            }, {
+                label: 'Frameworks',
+                name: 'frameworks',
+                option: ['1','2','3']
+            }]
+        }, 
+        {
+            legend: 'NodeJs',
+            items: [{
+                label: 'Backend frameworks',
+                name: 'backendFrameworks',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Templating',
+                name: 'templating',
+                option: ['1','2','3']
+            },
+            {
+                label: 'DOM Manipulation',
+                name: 'domM',
+                option: ['1','2','3']
+            },
+            {
+                label: 'Unit Testing',
+                name: 'unitTesting',
+                option: ['1','2','3']
+            }]
         }],
     };
     /*
@@ -454,6 +606,8 @@ function fieldsetSection(options = {}) {
     const elements = fieldsetSectionElement.data.map(function(object) {
         return fieldset(object) ;
     });
+
+    return elements.join('');
 }
     /*
     fieldsetSectionElement.data = [obj1, onj2]
@@ -469,7 +623,7 @@ function fieldsetSection(options = {}) {
     */
 
 function fieldset(options = {}) {
-
+/*alert(listItem(options.items))*/
     return `
     <fieldset>
         <legend>${options.legend}</legend>
