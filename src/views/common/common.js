@@ -10,9 +10,9 @@ const NAV = function(option={}) {
     return `
     <nav>
     <img class = "logoPicture" src = "./assets/logo.jpg">
-    <a href = "evaluations.html">Evaluations</a>
-    <a href = "newEvaluations.html">New Evaluation</a>
-    <a id = "logout" href = "logout.html">Logout</a>
+    <a id = "evaluationsLink" href = "evaluations.html">Evaluations</a>
+    <a id = "newEvaluationLink" href = "newEvaluation.html">New Evaluation</a>
+    <a id = "logoutLink" href = "logout.html">Logout</a>
     </nav>
     `;
 }
