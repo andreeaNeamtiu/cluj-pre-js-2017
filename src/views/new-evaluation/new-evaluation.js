@@ -634,9 +634,9 @@ function fieldset(options = {}) {
     `;
 }
 
-window.onload = function () {
+/*window.onload = function () {
     const appEl = document.querySelector('#app');
     appEl.innerHTML = newEvaluationPage();
     formEventsSetup();
-}
+}*/
 ;

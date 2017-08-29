@@ -41,14 +41,6 @@ const SubmitFeedbackResults = function(options) {
     `;
 };
 
-const Footer = function(options) {
-    return `
-    <footer class = "footerContent">
-        <p>Copyright@Softvision 2017</p>
-    </footer>
-    `;
-}
-
 const LoginPage = function(options) {
     return `
         ${LoginHeader()}
@@ -58,7 +50,7 @@ const LoginPage = function(options) {
     `;
 }
 
-window.onload = function() {
+/*window.onload = function() {
     const result =  document.querySelector('#app');
     result.innerHTML = LoginPage();
-}
+}*/

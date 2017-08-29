@@ -100,7 +100,7 @@ function EvaluationsTable(options={}) {
     `;
 }
 
-window.onload = function() {
+/*window.onload = function() {
     const appEl = document.querySelector('#app');
     appEl.innerHTML = EvaluationsPage();
-}
+}*/
