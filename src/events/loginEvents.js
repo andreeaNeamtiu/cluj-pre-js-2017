@@ -9,3 +9,14 @@ const AddEventsLogin = function() {
     let form = document.querySelector('form');
     form.addEventListener('submit', listener);
 }
+ /*
+const VerifyLogin = function() {
+    var username = document.getElementById("loginUsername");
+    var password = document.getElementById("loginPassword");
+
+    const store = function() {
+        localStorage.setItem('username', username.value);
+        localStorage.setItem('password', password.value);
+    }
+
+}*/
