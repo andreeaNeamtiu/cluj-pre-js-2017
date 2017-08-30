@@ -1,6 +1,5 @@
 const AddEventsLogin = function() {
     const listener = function(e) {
-        // ???
         e.preventDefault();
         const appEl = document.querySelector('#app');
         appEl.innerHTML = EvaluationsPage();

@@ -49,8 +49,3 @@ const LoginPage = function(options) {
         ${Footer()}
     `;
 }
-
-/*window.onload = function() {
-    const result =  document.querySelector('#app');
-    result.innerHTML = LoginPage();
-}*/

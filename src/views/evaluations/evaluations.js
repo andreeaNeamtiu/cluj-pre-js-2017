@@ -2,9 +2,10 @@ function EvaluationsPage(options) {
     
     const newOptions = options || {};
     const headings = [
-        'Nume', 'Tehnologie', 'Nivel', ''
+        'Nume', 'Data', 'Nivel', 'Detalii'
     ];
-    const rows = [
+    const rows = JSON.parse(localStorage.getItem("evaluations"))
+    /*[
         {
             name: 'Popescu Adrian',
             technology: 'Javascript',
@@ -25,7 +26,7 @@ function EvaluationsPage(options) {
             technology: 'Ruby',
             level: 'Senior 1'
         }
-    ];
+    ];*/
 
     return `
     ${NAV()}
@@ -59,20 +60,18 @@ function EvaluationsTableHeader (options) {
 function EvaluationTableRow(options={}) {
     return `
     <tr>
-        <td>${options.name}</td>
-        <td>${options.technology}</td>
-        <td>${options.level}</td>
+        <td>${options.candidate}</td>
+        <td>${options.date}</td>
+        <td>${options.technicalLevel}</td>
         <td>Detalii <button>+</button> </td>
     </tr>
     `;
 }
 
 function EvaluationTableBody (options={}) {
-    
-    // const rowsElements = [];
+
     const rowsElements = options.items.map(function(rowObj) {
         return EvaluationTableRow(rowObj);
-        // rowsElements.push(generatedRow);
     });
     const rowEl = rowsElements.join('');
 
@@ -99,8 +98,3 @@ function EvaluationsTable(options={}) {
         </div>
     `;
 }
-
-/*window.onload = function() {
-    const appEl = document.querySelector('#app');
-    appEl.innerHTML = EvaluationsPage();
-}*/

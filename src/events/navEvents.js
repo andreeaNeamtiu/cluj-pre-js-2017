@@ -12,6 +12,7 @@ const AddEventsNavigation = function() {
     const loadNewEvaluation = function(e) {
         e.preventDefault();
         appEl.innerHTML = newEvaluationPage();
+        formEventsSetup();
         AddEventsNavigation();
     }
     const loadLogout = function(e) {

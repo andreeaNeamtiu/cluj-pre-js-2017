@@ -318,7 +318,7 @@ function textarea(options = {}) {
     return `
     <section>
         <h2>${options.header}</h2>
-        <textarea rows = "6" cols = "" placeholder = "${options.placeholder}"></textarea>
+        <textarea name = "${options.header}" rows = "6" cols = "" placeholder = "${options.placeholder}"></textarea>
     </section>
     `;
 }
@@ -352,7 +352,7 @@ function listItem(options = {}) {
         <li>
             <label>${el.label}</label>
             <select name="${el.name}">
-                <option disabled>Elements</option>
+                <option selected="selected" disabled>Elements</option>
                 ${optionElement.join('')}
             </select>
         </li>
@@ -623,7 +623,6 @@ function fieldsetSection(options = {}) {
     */
 
 function fieldset(options = {}) {
-/*alert(listItem(options.items))*/
     return `
     <fieldset>
         <legend>${options.legend}</legend>
@@ -632,11 +631,4 @@ function fieldset(options = {}) {
         </ul>
     </fieldset>
     `;
-}
-
-/*window.onload = function () {
-    const appEl = document.querySelector('#app');
-    appEl.innerHTML = newEvaluationPage();
-    formEventsSetup();
-}*/
-;
+};
