@@ -2,8 +2,8 @@ const LoginForm = function(options) {
     return `
     <form class = "loginForm" method="POST" action="action.php">
         <th>Interview Feedback</th>
-        <tr><input type = "name" name = "username" placeholder = "Username"></tr>
-        <tr><input type = "password" name = "password" placeholder = "Password"></tr>
+        <tr><input type = "name" name = "username" id = "loginUsername" placeholder = "Username"></tr>
+        <tr><input type = "password" name = "password" id = "loginPassword" placeholder = "Password"></tr>
         <tr><button type = "submit" name = "submit">Login</button></tr>
     </form>
     `;
@@ -41,14 +41,6 @@ const SubmitFeedbackResults = function(options) {
     `;
 };
 
-const Footer = function(options) {
-    return `
-    <footer class = "footerContent">
-        <p>Copyright@Softvision 2017</p>
-    </footer>
-    `;
-}
-
 const LoginPage = function(options) {
     return `
         ${LoginHeader()}
@@ -56,9 +48,4 @@ const LoginPage = function(options) {
         ${SubmitFeedbackResults()}
         ${Footer()}
     `;
-}
-
-window.onload = function() {
-    const result =  document.querySelector('#app');
-    result.innerHTML = LoginPage();
 }
