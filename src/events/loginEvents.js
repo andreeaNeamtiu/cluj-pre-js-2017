@@ -16,7 +16,6 @@ const AddEventsLogin = function() {
     }
 
     const firstPage = function() {
-        //e.preventDefault();
         const appEl = document.querySelector('#app');
         appEl.innerHTML = EvaluationsPage();
         AddEventsNavigation();

@@ -63,7 +63,7 @@ function EvaluationTableRow(options={}) {
         <td>${options.candidate}</td>
         <td>${options.date}</td>
         <td>${options.technicalLevel}</td>
-        <td>Detalii <button>+</button> </td>
+        <td>Detalii <button class="roundButton" id="${options.candidate+options.date}">+</button> </td>
     </tr>
     `;
 }

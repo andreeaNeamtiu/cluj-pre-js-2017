@@ -1,10 +1,10 @@
 const LoginForm = function(options) {
     return `
     <form class = "loginForm" method="POST" action="action.php">
-        <th>Interview Feedback</th>
-        <tr><input type = "name" name = "username" id = "loginUsername" placeholder = "Username"></tr>
-        <tr><input type = "password" name = "password" id = "loginPassword" placeholder = "Password"></tr>
-        <tr><button type = "submit" name = "submit">Login</button></tr>
+        <div class="loginHeader" Interview Feedback</div>
+        <div class="loginContent"><tr><input type = "name" class="usernameInput" name = "username" id = "loginUsername" placeholder = "Username"></tr>
+        <tr><input type = "password" class="passwordInput" name = "password" id = "loginPassword" placeholder = "Password"></tr>
+        <tr><button type = "submit" class="submitButton" name = "submit">Login</button></tr></div>
     </form>
     `;
 };

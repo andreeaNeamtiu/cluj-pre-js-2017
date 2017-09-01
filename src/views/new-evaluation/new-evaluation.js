@@ -247,7 +247,7 @@ function newEvaluationBody(options = {}) {
         ${textareaSection()}
             <section>
                 ${fieldsetSection()}
-                <button id = "submitButton" type = "submit" name = "submit">SUBMIT</button>
+                <button class="submitButton" id="submitButton" type = "submit" name = "submit">SUBMIT</button>
             </section>
         </form>
 	</div>
