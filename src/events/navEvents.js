@@ -2,26 +2,20 @@ const AddEventsNavigation = function() {
     const evaluations = document.getElementById("evaluationsLink");
     const newEvaluation = document.getElementById("newEvaluationLink");
     const logout = document.getElementById("logoutLink");
-    const appEl = document.querySelector('#app');
 
     const loadEvaluations = function(e) {
         e.preventDefault();
-        appEl.innerHTML = EvaluationsPage();
-        AddEventsNavigation();
+        navigate("evaluations");
     }
     const loadNewEvaluation = function(e) {
         e.preventDefault();
-        appEl.innerHTML = newEvaluationPage();
-        formEventsSetup();
-        AddEventsNavigation();
+        navigate("newEvaluation");
     }
     const loadLogout = function(e) {
         e.preventDefault();
-        appEl.innerHTML = LoginPage();
-        AddEventsLogin();
         sessionStorage.removeItem("userLogged");
+        navigate("login");
     }
-
     evaluations.addEventListener('click', loadEvaluations);
     newEvaluation.addEventListener('click', loadNewEvaluation);
     logout.addEventListener('click', loadLogout);

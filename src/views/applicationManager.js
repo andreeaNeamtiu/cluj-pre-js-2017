@@ -1,33 +1,21 @@
-/*
-//factory pattern
-const setup = function() {}
+function navigate(page) {
+    const appEl = document.querySelector('#app');
+    switch(page) {
 
-setup.prototype.app = function (options) {
-    if(options.isLogged === false) {
-        return {
-            view: new LoginPage(),
-            setupEvents: new AddEventsLogin()
-        }
+        case 'evaluations':
+        appEl.innerHTML = EvaluationsPage();
+        AddEventsNavigation();
+        break;
+
+        case 'newEvaluation':
+        appEl.innerHTML = newEvaluationPage();
+        formEventsSetup();
+        AddEventsNavigation();;
+        break;
+
+        case 'login':
+        appEl.innerHTML = LoginPage();
+        AddEventsLogin();
+        break;
     }
-    return {
-        view: new EvaluationsPage(),
-        setupEvents: new navEvents()
-    }
-};*/
-/*
-const navigate = switch (page) {
-    case 'evaluations':
-
-    break;
-
-    case 'newEvaluation':
-
-    break;
-    case 'logout':
-
-    break;
-    case 'login':
-
-    break;
 }
-*/
