@@ -19,6 +19,7 @@ const AddEventsNavigation = function() {
         e.preventDefault();
         appEl.innerHTML = LoginPage();
         AddEventsLogin();
+        sessionStorage.removeItem("userLogged");
     }
 
     evaluations.addEventListener('click', loadEvaluations);

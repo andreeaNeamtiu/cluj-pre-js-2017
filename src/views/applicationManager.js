@@ -14,3 +14,20 @@ setup.prototype.app = function (options) {
         setupEvents: new navEvents()
     }
 };*/
+/*
+const navigate = switch (page) {
+    case 'evaluations':
+
+    break;
+
+    case 'newEvaluation':
+
+    break;
+    case 'logout':
+
+    break;
+    case 'login':
+
+    break;
+}
+*/

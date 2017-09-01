@@ -1,6 +1,22 @@
 const AddEventsLogin = function() {
-    const listener = function(e) {
+    //sessionStorage for Login credentials
+    const verifyLogin = function(e) {
         e.preventDefault();
+
+        var usernameLogin = document.getElementById("loginUsername").value;
+        var passwordLogin = document.getElementById("loginPassword").value;
+
+            if ("a" === usernameLogin && "a" === passwordLogin) {
+                sessionStorage.userLogged = "Andreea";
+                firstPage();
+            }
+            else {
+                alert('Wrong username or password');
+            }
+    }
+
+    const firstPage = function() {
+        //e.preventDefault();
         const appEl = document.querySelector('#app');
         appEl.innerHTML = EvaluationsPage();
         AddEventsNavigation();
@@ -8,25 +24,8 @@ const AddEventsLogin = function() {
 
     let form = document.querySelector('form');
     form.addEventListener('submit', verifyLogin);
-
-//sessionStorage for Login credentials
-const verifyLogin = function(e) {
-    e.preventDefault();
-    sessionStorage.setItem("name", "andreea");
-    var usernameData = sessionStorage.getItem("name");
-    var passwordData = sessionStorage.getItem("andreea");
-
-    var username = document.getElementById("loginUsername");
-    var password = document.getElementById("loginPassword");
-
-    let arr = [];
-    if(sessionStorage.length !== 0) {
-        arr = JSON.parse(sessionStorage.getItem("userData"));
-        if (userData.key === usernameData && userData.data === passwordData) {
-            listener();
-        }
-        alert('Wrong username or password');
-    }
-    sessionStorage.setItem("userData", JSON.stringify(arr));
 }
-}
+
+/*problems:
+limited number of credentials
+localStorage*/
