@@ -1,30 +1,29 @@
-const AddEventsLogin = function() {
-    //sessionStorage for Login credentials
-    const verifyLogin = function(e) {
+interview.AddEventsLogin = function () {
+    // sessionStorage for Login credentials
+    const verifyLogin = function (e) {
         e.preventDefault();
 
-        var usernameLogin = document.getElementById("loginUsername").value;
-        var passwordLogin = document.getElementById("loginPassword").value;
+        const usernameLogin = document.getElementById('loginUsername').value;
+        const passwordLogin = document.getElementById('loginPassword').value;
 
-            if ("a" === usernameLogin && "a" === passwordLogin) {
-                sessionStorage.userLogged = "Andreea";
-                firstPage();
-            }
-            else {
-                alert('Wrong username or password');
-            }
-    }
+        if (usernameLogin === 'a' && passwordLogin === 'a') {
+            sessionStorage.userLogged = 'Andreea';
+            firstPage();
+        } else {
+            alert('Wrong username or password');
+        }
+    };
 
-    const firstPage = function() {
+    const firstPage = function () {
         const appEl = document.querySelector('#app');
-        appEl.innerHTML = EvaluationsPage();
-        AddEventsNavigation();
-    }
+        appEl.innerHTML = interview.EvaluationsPage();
+        interview.AddEventsNavigation();
+    };
 
-    let form = document.querySelector('form');
+    const form = document.querySelector('form');
     form.addEventListener('submit', verifyLogin);
-}
+};
 
-/*problems:
+/* problems:
 limited number of credentials
-localStorage*/
+localStorage */

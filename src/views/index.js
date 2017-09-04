@@ -2,11 +2,9 @@ window.onload = function () {
     const appEl = document.querySelector('#app');
     const isLogged = !!sessionStorage.userLogged;
     if (!isLogged) {
-    appEl.innerHTML = LoginPage();
-    AddEventsLogin();
+        interview.navigate("login");
     }
     else {
-        appEl.innerHTML = EvaluationsPage();
-        AddEventsNavigation();
+        interview.navigate("evaluations");
     }
-}
+}()
