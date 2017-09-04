@@ -1,4 +1,4 @@
-/*// IIFE - immediately invoked function expression
+/*
 var interview = (function () {
     // properties
     const login = function () {
