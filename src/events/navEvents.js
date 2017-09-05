@@ -1,27 +1,22 @@
-const AddEventsNavigation = function() {
-    const evaluations = document.getElementById("evaluationsLink");
-    const newEvaluation = document.getElementById("newEvaluationLink");
-    const logout = document.getElementById("logoutLink");
-    const appEl = document.querySelector('#app');
+interview.AddEventsNavigation = function () {
+    const evaluations = document.getElementById('evaluationsLink');
+    const newEvaluation = document.getElementById('newEvaluationLink');
+    const logout = document.getElementById('logoutLink');
 
-    const loadEvaluations = function(e) {
+    const loadEvaluations = function (e) {
         e.preventDefault();
-        appEl.innerHTML = EvaluationsPage();
-        AddEventsNavigation();
-    }
-    const loadNewEvaluation = function(e) {
+        interview.navigate('evaluations');
+    };
+    const loadNewEvaluation = function (e) {
         e.preventDefault();
-        appEl.innerHTML = newEvaluationPage();
-        formEventsSetup();
-        AddEventsNavigation();
-    }
-    const loadLogout = function(e) {
+        interview.navigate('newEvaluation');
+    };
+    const loadLogout = function (e) {
         e.preventDefault();
-        appEl.innerHTML = LoginPage();
-        AddEventsLogin();
-    }
-
+        sessionStorage.removeItem('userLogged');
+        interview.navigate('login');
+    };
     evaluations.addEventListener('click', loadEvaluations);
     newEvaluation.addEventListener('click', loadNewEvaluation);
     logout.addEventListener('click', loadLogout);
-}
+};

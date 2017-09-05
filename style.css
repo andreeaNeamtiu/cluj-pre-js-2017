@@ -46,7 +46,7 @@ td
 	width: 60px;
 }
 
-button
+.roundButton
 {
 	border-radius: 50%;
 	background-color: #03A9F4;

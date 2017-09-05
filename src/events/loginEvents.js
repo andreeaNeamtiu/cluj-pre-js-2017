@@ -1,22 +1,29 @@
-const AddEventsLogin = function() {
-    const listener = function(e) {
+interview.AddEventsLogin = function () {
+    // sessionStorage for Login credentials
+    const verifyLogin = function (e) {
         e.preventDefault();
+
+        const usernameLogin = document.getElementById('loginUsername').value;
+        const passwordLogin = document.getElementById('loginPassword').value;
+
+        if (usernameLogin === 'a' && passwordLogin === 'a') {
+            sessionStorage.userLogged = 'Andreea';
+            firstPage();
+        } else {
+            alert('Wrong username or password');
+        }
+    };
+
+    const firstPage = function () {
         const appEl = document.querySelector('#app');
-        appEl.innerHTML = EvaluationsPage();
-        AddEventsNavigation();
-    }
+        appEl.innerHTML = interview.EvaluationsPage();
+        interview.AddEventsNavigation();
+    };
 
-    let form = document.querySelector('form');
-    form.addEventListener('submit', listener);
-}
- /*
-const VerifyLogin = function() {
-    var username = document.getElementById("loginUsername");
-    var password = document.getElementById("loginPassword");
+    const form = document.querySelector('form');
+    form.addEventListener('submit', verifyLogin);
+};
 
-    const store = function() {
-        localStorage.setItem('username', username.value);
-        localStorage.setItem('password', password.value);
-    }
-
-}*/
+/* problems:
+limited number of credentials
+localStorage */

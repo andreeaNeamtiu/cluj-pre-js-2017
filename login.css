@@ -37,6 +37,7 @@
     height: 200px;
     width: 200px;
     border: 2px solid #03A9F4;
+    text-align:center
 }
 
 .loginForm th
@@ -54,4 +55,27 @@
 {
     width: 800px;
     height: 400px;
+}
+
+.loginForm button 
+{
+    float: none;
+    margin: 60px;
+}
+
+.usernameInput
+{
+    align: center;
+}
+
+.loginHeader
+{
+    background-color: #03A9F4;
+    top: 0;
+}
+
+.loginContent
+{
+    background-color: #ffffff;
+    bottom: 0;
 }
