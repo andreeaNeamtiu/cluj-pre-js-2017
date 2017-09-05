@@ -2,5 +2,5 @@
 window.onload = function () {
     const appEl = document.querySelector('#app');
     const isLogged = !!sessionStorage.userLogged;
-    interview.navigate(isLogged ? 'evaluations' : 'login');
+    isLogged ? interview.modules.moduleEvaluations.init() : interview.modules.moduleLogin.init();
 }()

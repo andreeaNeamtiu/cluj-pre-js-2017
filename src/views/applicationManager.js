@@ -1,24 +1,56 @@
 const interview = {};
-interview.navigate = function(page) {
-    const appEl = document.querySelector('#app');
-    switch (page) {
-    case 'evaluations':
-        appEl.innerHTML = interview.EvaluationsPage();
-        interview.AddEventsNavigation();
-        //evaluationsEvents();
-        break;
 
-    case 'newEvaluation':
-        appEl.innerHTML = interview.newEvaluationPage();
-        interview.formEventsSetup();
-        interview.AddEventsNavigation();
-        break;
-
-    case 'login':
-        appEl.innerHTML = interview.LoginPage();
-        interview.AddEventsLogin();
-        break;
-
-    default: 
-    }
+// find page
+page = [];
+if (page == 0) {
+    page = 'login';
+} 
+else {
+//   destroy(lastPage);
+//    init(newPage);
 }
+//modules
+interview.modules = {
+    moduleEvaluations: {
+        init() {
+            const container = document.querySelector('#app');
+            //render
+            container.innerHTML = interview.EvaluationsPage();
+            //events
+            interview.AddEventsNavigation();
+        },
+    },
+
+    moduleNewEvaluation: {
+        init() {
+            const container = document.querySelector('#app');
+            //render
+            container.innerHTML = interview.newEvaluationPage();
+            //events
+            interview.formEventsSetup();
+            interview.AddEventsNavigation();
+        },
+    },
+
+    moduleLogin: {
+        init() {
+            const container = document.querySelector('#app');
+            //render
+            container.innerHTML = interview.LoginPage();
+            //events
+            interview.AddEventsLogin();
+        },
+    }
+
+    /*const removeEvents = {
+        for (let i = 0; i < elements.length; i++) {
+            let element = elements[i];
+            element.removeEventListener();
+        }
+    };
+    
+    const destroyPage = function() {
+        removeEvents();
+        elements = undefined;
+    } */
+};

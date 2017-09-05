@@ -9,7 +9,8 @@ interview.AddEventsLogin = function () {
         if (usernameLogin === 'a' && passwordLogin === 'a') {
             sessionStorage.userLogged = 'Andreea';
             firstPage();
-        } else {
+        } 
+        else {
             alert('Wrong username or password');
         }
     };

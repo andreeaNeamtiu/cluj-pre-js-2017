@@ -5,16 +5,16 @@ interview.AddEventsNavigation = function () {
 
     const loadEvaluations = function (e) {
         e.preventDefault();
-        interview.navigate('evaluations');
+        interview.modules.moduleEvaluations.init()
     };
     const loadNewEvaluation = function (e) {
         e.preventDefault();
-        interview.navigate('newEvaluation');
+        interview.modules.moduleNewEvaluation.init()
     };
     const loadLogout = function (e) {
         e.preventDefault();
         sessionStorage.removeItem('userLogged');
-        interview.navigate('login');
+        interview.modules.moduleLogin.init()
     };
     evaluations.addEventListener('click', loadEvaluations);
     newEvaluation.addEventListener('click', loadNewEvaluation);
