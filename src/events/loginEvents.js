@@ -16,9 +16,7 @@ interview.AddEventsLogin = function () {
     };
 
     const firstPage = function () {
-        const appEl = document.querySelector('#app');
-        appEl.innerHTML = interview.EvaluationsPage();
-        interview.AddEventsNavigation();
+        interview.modules.evaluations.init();
     };
 
     const form = document.querySelector('form');

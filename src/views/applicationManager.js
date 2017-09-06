@@ -9,9 +9,9 @@ else {
 //   destroy(lastPage);
 //    init(newPage);
 }
-//modules
+//set up the collection of modules that app can use
 interview.modules = {
-    moduleEvaluations: {
+    evaluations: {
         init() {
             const container = document.querySelector('#app');
             //render
@@ -21,7 +21,7 @@ interview.modules = {
         },
     },
 
-    moduleNewEvaluation: {
+    newEvaluation: {
         init() {
             const container = document.querySelector('#app');
             //render
@@ -32,7 +32,7 @@ interview.modules = {
         },
     },
 
-    moduleLogin: {
+    login: {
         init() {
             const container = document.querySelector('#app');
             //render
