@@ -39,10 +39,10 @@ interview.modules = {
             //render
             container.innerHTML = interview.loginPage();
             //events
-            interview.addEventsLogin();
+            interview.eventsLogin().add();
         },
-        /*destroy() {
-            interview.removeEventsLogin();
-        }*/
+        destroy() {
+            interview.eventsLogin().remove();
+        }
     }
 };
