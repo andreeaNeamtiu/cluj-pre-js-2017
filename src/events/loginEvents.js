@@ -1,4 +1,4 @@
-interview.AddEventsLogin = function () {
+interview.addEventsLogin = function () {
     // sessionStorage for Login credentials
     const verifyLogin = function (e) {
         e.preventDefault();
@@ -9,15 +9,14 @@ interview.AddEventsLogin = function () {
         if (usernameLogin === 'a' && passwordLogin === 'a') {
             sessionStorage.userLogged = 'Andreea';
             firstPage();
-        } else {
+        } 
+        else {
             alert('Wrong username or password');
         }
     };
 
     const firstPage = function () {
-        const appEl = document.querySelector('#app');
-        appEl.innerHTML = interview.EvaluationsPage();
-        interview.AddEventsNavigation();
+        interview.modules.evaluations.init();
     };
 
     const form = document.querySelector('form');

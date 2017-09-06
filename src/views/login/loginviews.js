@@ -1,6 +1,6 @@
-interview.LoginPage = function (options) {
+interview.loginPage = function (options) {
 
-    const LoginForm = function (options) {
+    const loginForm = function (options) {
         return `
         <form class = "loginForm" method="POST" action="action.php">
             <div class="loginHeader" Interview Feedback</div>
@@ -11,15 +11,15 @@ interview.LoginPage = function (options) {
         `;
     };
     
-    const LoginHeader = function (options) {
+    const loginHeader = function (options) {
         return `
         <header class="headerSection grid">
-        ${LoginForm()}
+        ${loginForm()}
         </header>
         `;
     };
     
-    const SubmitFeedbackSection = function (options) {
+    const submitFeedbackSection = function (options) {
         return `
         <section  class ="submitSection">
             <img src = "./assets/new feedback.jpg">
@@ -31,7 +31,7 @@ interview.LoginPage = function (options) {
         `;
     };
     
-    const SubmitFeedbackResults = function (options) {
+    const submitFeedbackResults = function (options) {
         return `
         <section class="feedbackSection">
             <article class="article2">
@@ -44,9 +44,9 @@ interview.LoginPage = function (options) {
     };
 
     return `
-        ${LoginHeader()}
-        ${SubmitFeedbackSection()}
-        ${SubmitFeedbackResults()}
-        ${interview.CommonElements().Footer}
+        ${loginHeader()}
+        ${submitFeedbackSection()}
+        ${submitFeedbackResults()}
+        ${interview.commonElements().footer}
     `;
 };

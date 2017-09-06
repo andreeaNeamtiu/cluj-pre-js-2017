@@ -1,24 +1,48 @@
 const interview = {};
-interview.navigate = function(page) {
-    const appEl = document.querySelector('#app');
-    switch (page) {
-    case 'evaluations':
-        appEl.innerHTML = interview.EvaluationsPage();
-        interview.AddEventsNavigation();
-        //evaluationsEvents();
-        break;
 
-    case 'newEvaluation':
-        appEl.innerHTML = interview.newEvaluationPage();
-        interview.formEventsSetup();
-        interview.AddEventsNavigation();
-        break;
-
-    case 'login':
-        appEl.innerHTML = interview.LoginPage();
-        interview.AddEventsLogin();
-        break;
-
-    default: 
-    }
+// find page
+page = [];
+if (page == 0) {
+    page = 'login';
+} 
+else {
+//   destroy(lastPage);
+//    init(newPage);
 }
+
+//set up the collection of modules that app can use
+interview.modules = {
+    evaluations: {
+        init() {
+            const container = document.querySelector('#app');
+            //render
+            container.innerHTML = interview.evaluationsPage();
+            //events
+            interview.addEventsNavigation();
+        },
+    },
+
+    newEvaluation: {
+        init() {
+            const container = document.querySelector('#app');
+            //render
+            container.innerHTML = interview.newEvaluationPage();
+            //events
+            interview.formEventsSetup();
+            interview.addEventsNavigation();
+        },
+    },
+
+    login: {
+        init() {
+            const container = document.querySelector('#app');
+            //render
+            container.innerHTML = interview.loginPage();
+            //events
+            interview.addEventsLogin();
+        },
+        /*destroy() {
+            interview.removeEventsLogin();
+        }*/
+    }
+};

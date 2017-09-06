@@ -1,20 +1,20 @@
-interview.AddEventsNavigation = function () {
+interview.addEventsNavigation = function () {
     const evaluations = document.getElementById('evaluationsLink');
     const newEvaluation = document.getElementById('newEvaluationLink');
     const logout = document.getElementById('logoutLink');
 
-    const loadEvaluations = function (e) {
+    const loadEvaluations = function(e) {
         e.preventDefault();
-        interview.navigate('evaluations');
+        interview.modules.evaluations.init();
     };
-    const loadNewEvaluation = function (e) {
+    const loadNewEvaluation = function(e) {
         e.preventDefault();
-        interview.navigate('newEvaluation');
+        interview.modules.newEvaluation.init();
     };
-    const loadLogout = function (e) {
+    const loadLogout = function(e) {
         e.preventDefault();
         sessionStorage.removeItem('userLogged');
-        interview.navigate('login');
+        interview.modules.login.init();
     };
     evaluations.addEventListener('click', loadEvaluations);
     newEvaluation.addEventListener('click', loadNewEvaluation);
