@@ -1,7 +1,7 @@
 interview.eventsLogin = function () {
 
     const form = document.querySelector('form');
-    
+
     const firstPage = function () {
         interview.modules.evaluations.init();
     };

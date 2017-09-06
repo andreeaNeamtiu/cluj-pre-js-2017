@@ -28,9 +28,13 @@ interview.modules = {
             //render
             container.innerHTML = interview.newEvaluationPage();
             //events
-            interview.formEventsSetup();
+            interview.formEventsSetup().add();
             interview.addEventsNavigation();
         },
+        destroy() {
+            //working on this !!!
+            interview.formEventsSetup().remove();
+        }
     },
 
     login: {

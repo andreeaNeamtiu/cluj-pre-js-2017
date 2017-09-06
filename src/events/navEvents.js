@@ -6,6 +6,7 @@ interview.addEventsNavigation = function () {
     const loadEvaluations = function(e) {
         e.preventDefault();
         interview.modules.evaluations.init();
+        interview.modules.login.destroy();
     };
     const loadNewEvaluation = function(e) {
         e.preventDefault();
