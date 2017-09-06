@@ -1,48 +1,41 @@
 const interview = {};
 
-// find page
-page = [];
-if (page == 0) {
-    page = 'login';
-} 
-else {
-//   destroy(lastPage);
-//    init(newPage);
-}
-
-//set up the collection of modules that app can use
+// set up the collection of modules that app can use
 interview.modules = {
     evaluations: {
         init() {
+            // render
             const container = document.querySelector('#app');
-            //render
             container.innerHTML = interview.evaluationsPage();
-            //events
-            interview.addEventsNavigation();
+            // events
+            interview.addEventsNavigation().add();
         },
+        destroy() {
+            interview.addEventsNavigation().remove();
+        }
     },
 
     newEvaluation: {
         init() {
+            // render
             const container = document.querySelector('#app');
-            //render
             container.innerHTML = interview.newEvaluationPage();
-            //events
+            // events
             interview.formEventsSetup().add();
-            interview.addEventsNavigation();
+            interview.addEventsNavigation().add();
         },
         destroy() {
-            //working on this !!!
             interview.formEventsSetup().remove();
+            interview.addEventsNavigation().remove();
         }
     },
 
     login: {
         init() {
+            // render
             const container = document.querySelector('#app');
-            //render
             container.innerHTML = interview.loginPage();
-            //events
+            // events
             interview.eventsLogin().add();
         },
         destroy() {
