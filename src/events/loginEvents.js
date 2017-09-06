@@ -1,4 +1,4 @@
-interview.AddEventsLogin = function () {
+interview.addEventsLogin = function () {
     // sessionStorage for Login credentials
     const verifyLogin = function (e) {
         e.preventDefault();

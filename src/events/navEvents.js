@@ -1,4 +1,4 @@
-interview.AddEventsNavigation = function () {
+interview.addEventsNavigation = function () {
     const evaluations = document.getElementById('evaluationsLink');
     const newEvaluation = document.getElementById('newEvaluationLink');
     const logout = document.getElementById('logoutLink');

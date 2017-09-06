@@ -1,6 +1,6 @@
-interview.CommonElements = function() {
+interview.commonElements = function() {
     
-    const Footer = function () {
+    const footer = function () {
         return `
         <footer class = "footerContent">
             <p>Copyright@Softvision 2017</p>
@@ -8,7 +8,7 @@ interview.CommonElements = function() {
         `;
     };
 
-    const NAV = function (option = {}) {
+    const nav = function (option = {}) {
         return `
         <nav>
         <img class = "logoPicture" src = "./assets/logo.jpg">
@@ -19,7 +19,7 @@ interview.CommonElements = function() {
         `;
     };
     return {
-        Footer: Footer(),
-        NAV: NAV()
+        footer: footer(),
+        nav: nav()
     }
 }

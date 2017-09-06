@@ -1,4 +1,4 @@
-interview.EvaluationsPage = function(options) {
+interview.evaluationsPage = function(options) {
         const newOptions = options || {};
         const headings = [
             'Nume', 'Data', 'Nivel', 'Detalii',
@@ -27,7 +27,7 @@ interview.EvaluationsPage = function(options) {
             }
         ]; */
     
-        function EvaluationsTableHeader(options) {
+        function evaluationsTableHeader(options) {
             const headings = [];
         
             options.headings.forEach((el) => {
@@ -46,7 +46,7 @@ interview.EvaluationsPage = function(options) {
             `;
         }
         
-        function EvaluationTableRow(options = {}) {
+        function evaluationTableRow(options = {}) {
             return `
             <tr>
                 <td>${options.candidate}</td>
@@ -58,9 +58,9 @@ interview.EvaluationsPage = function(options) {
             `;
         }
         
-        function EvaluationTableBody(options = {}) {
+        function evaluationTableBody(options = {}) {
             const rowsElements = options.items.map((rowObj) => {
-                return EvaluationTableRow(rowObj);
+                return evaluationTableRow(rowObj);
             });
             const rowEl = rowsElements.join('');
         
@@ -69,16 +69,16 @@ interview.EvaluationsPage = function(options) {
             `;
         }
         
-        function EvaluationsTable(options = {}) {
+        function evaluationsTable(options = {}) {
             return `
             <div class = "tableEvaluations">
             <table>
         
-                ${EvaluationsTableHeader({
+                ${evaluationsTableHeader({
                 headings: options.itemHeadings,
             })}
         
-                ${EvaluationTableBody({
+                ${evaluationTableBody({
                 items: options.items,
             })}
         
@@ -88,11 +88,11 @@ interview.EvaluationsPage = function(options) {
         }
 
         return `
-        ${interview.CommonElements().NAV}
-        ${EvaluationsTable({
+        ${interview.commonElements().nav}
+        ${evaluationsTable({
             items: rows,
             itemHeadings: headings,
         })}
-        ${interview.CommonElements().Footer}
+        ${interview.commonElements().footer}
         `;
     }

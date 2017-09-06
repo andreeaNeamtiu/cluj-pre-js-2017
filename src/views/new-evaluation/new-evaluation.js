@@ -615,10 +615,10 @@ interview.newEvaluationPage = function(options) {
     }
 
     return `
-    ${interview.CommonElements().NAV}
+    ${interview.commonElements().nav}
     ${newEvaluationBody(
         technicalLevelElements,
     )}
-    ${interview.CommonElements().Footer}
+    ${interview.commonElements().footer}
     `;
 }

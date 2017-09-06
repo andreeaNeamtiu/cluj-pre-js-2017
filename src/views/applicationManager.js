@@ -9,15 +9,16 @@ else {
 //   destroy(lastPage);
 //    init(newPage);
 }
+
 //set up the collection of modules that app can use
 interview.modules = {
     evaluations: {
         init() {
             const container = document.querySelector('#app');
             //render
-            container.innerHTML = interview.EvaluationsPage();
+            container.innerHTML = interview.evaluationsPage();
             //events
-            interview.AddEventsNavigation();
+            interview.addEventsNavigation();
         },
     },
 
@@ -28,7 +29,7 @@ interview.modules = {
             container.innerHTML = interview.newEvaluationPage();
             //events
             interview.formEventsSetup();
-            interview.AddEventsNavigation();
+            interview.addEventsNavigation();
         },
     },
 
@@ -36,21 +37,12 @@ interview.modules = {
         init() {
             const container = document.querySelector('#app');
             //render
-            container.innerHTML = interview.LoginPage();
+            container.innerHTML = interview.loginPage();
             //events
-            interview.AddEventsLogin();
+            interview.addEventsLogin();
         },
+        /*destroy() {
+            interview.removeEventsLogin();
+        }*/
     }
-
-    /*const removeEvents = {
-        for (let i = 0; i < elements.length; i++) {
-            let element = elements[i];
-            element.removeEventListener();
-        }
-    };
-    
-    const destroyPage = function() {
-        removeEvents();
-        elements = undefined;
-    } */
 };
