@@ -30,9 +30,9 @@ interview.addEventsNavigation = function () {
     };
 
     const remove = function () {
-        evaluations.removeEventListener('click', loadEvaluations);
-        newEvaluation.removeEventListener('click', loadNewEvaluation);
-        logout.removeEventListener('click', loadLogout);
+        evaluations && evaluations.removeEventListener('click', loadEvaluations);
+        newEvaluation && newEvaluation.removeEventListener('click', loadNewEvaluation);
+        logout && logout.removeEventListener('click', loadLogout);
     };
 
     return {add, remove };

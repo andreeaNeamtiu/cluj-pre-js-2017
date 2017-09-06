@@ -26,7 +26,7 @@ interview.eventsLogin = function () {
     };
 
     const remove = function () {
-        form.removeEventListener('submit', verifyLogin);
+        form && form.removeEventListener('submit', verifyLogin);
     };
 
     return {add, remove };

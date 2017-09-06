@@ -42,7 +42,7 @@ interview.formEventsSetup = function () {
     };
 
     const remove = function () {
-        form.removeEventListener('submit', getNewEvaluationData);
+        form && form.removeEventListener('submit', getNewEvaluationData);
     };
 
     return {add, remove };
