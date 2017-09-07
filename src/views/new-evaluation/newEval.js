@@ -34,15 +34,15 @@ interview.formEventsSetup = function () {
         arr.push(obj);
         localStorage.setItem('evaluations', JSON.stringify(arr));
     };
-
-    const form = document.querySelector('form');
+    let form;
 
     const add = function () {
+        form = document.querySelector('form');
         form.addEventListener('submit', getNewEvaluationData);
     };
 
     const remove = function () {
-        form && form.removeEventListener('submit', getNewEvaluationData);
+        form.removeEventListener('submit', getNewEvaluationData);
     };
 
     return {add, remove };

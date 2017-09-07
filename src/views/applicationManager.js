@@ -1,17 +1,19 @@
-const interview = {};
-
+const navEvents = interview.addEventsNavigation();
+const formEvents = interview.formEventsSetup();
+const loginEvents = interview.eventsLogin();
 // set up the collection of modules that app can use
 interview.modules = {
+
     evaluations: {
         init() {
             // render
             const container = document.querySelector('#app');
             container.innerHTML = interview.evaluationsPage();
             // events
-            interview.addEventsNavigation().add();
+            navEvents.add();
         },
         destroy() {
-            interview.addEventsNavigation().remove();
+            navEvents.remove();
         }
     },
 
@@ -21,12 +23,12 @@ interview.modules = {
             const container = document.querySelector('#app');
             container.innerHTML = interview.newEvaluationPage();
             // events
-            interview.formEventsSetup().add();
-            interview.addEventsNavigation().add();
+            formEvents.add();
+            navEvents.add();
         },
         destroy() {
-            interview.formEventsSetup().remove();
-            interview.addEventsNavigation().remove();
+            formEvents.remove();
+            navEvents.remove();
         }
     },
 
@@ -36,10 +38,10 @@ interview.modules = {
             const container = document.querySelector('#app');
             container.innerHTML = interview.loginPage();
             // events
-            interview.eventsLogin().add();
+            loginEvents.add();
         },
         destroy() {
-            interview.eventsLogin().remove();
+            loginEvents.remove();
         }
     }
 };

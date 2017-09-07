@@ -1,7 +1,4 @@
 interview.eventsLogin = function () {
-
-    const form = document.querySelector('form');
-
     const firstPage = function () {
         interview.modules.evaluations.init();
     };
@@ -20,13 +17,15 @@ interview.eventsLogin = function () {
             alert('Wrong username or password');
         }
     };
+    let form;
 
     const add = function () {
+        form = document.querySelector('form');
         form.addEventListener('submit', verifyLogin);
     };
 
     const remove = function () {
-        form && form.removeEventListener('submit', verifyLogin);
+        form.removeEventListener('submit', verifyLogin);
     };
 
     return {add, remove };
@@ -34,4 +33,5 @@ interview.eventsLogin = function () {
 
 /* problems:
 limited number of credentials
-localStorage */
+localStorage 
+refresh: page new evaluation*/

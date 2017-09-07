@@ -1,6 +1,7 @@
-// IIFE - immediately invoked function expression
+// IIFE - immediately invoked function expression..
+const interview = {};
 window.onload = function () {
     const appEl = document.querySelector('#app');
     const isLogged = !!sessionStorage.userLogged;
-    isLogged ? interview.modules.evaluations.init() : interview.modules.login.init();
-}()
+    isLogged ? interview.loadModule(interview.modules.evaluations) : interview.loadModule(interview.modules.login);
+}
