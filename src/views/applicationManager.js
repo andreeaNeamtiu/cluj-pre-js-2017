@@ -1,6 +1,6 @@
 const navEvents = interview.addEventsNavigation();
 const formEvents = interview.formEventsSetup();
-const loginEvents = interview.eventsLogin();
+
 // set up the collection of modules that app can use
 interview.modules = {
 
@@ -64,14 +64,75 @@ interview.modules = {
 
     login: {
         init() {
-            // render
-            const container = document.querySelector('#app');
-            container.innerHTML = interview.loginPage();
-            // events
-            loginEvents.add();
+            // get object json for rendering the login page
+            const loginObjURL = 'src/jsonData/login.json';
+            
+            const loginPromise = new Promise(((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                        if (this.readyState < 400) {
+                            let loginObj;
+                            try {
+                                loginObj = JSON.parse(xhr.responseText);
+                            } catch(e) {
+                                console.error("hopaaa", e);
+                                reject('error');
+                            }
+                            resolve(loginObj);
+                        }
+                        else {
+                            reject('Something went terribly wrong!:((');
+                        }
+                    }
+                };
+                xhr.open('GET', loginObjURL, true);
+                xhr.send();
+            }));
+
+            loginPromise.then((data) => {
+                // render
+                const container = document.querySelector('#app');
+                container.innerHTML = interview.loginPage();
+                // events
+                const loginEvents = interview.eventsLogin(data);
+                loginEvents.add();
+            }).catch((error) => {
+                alert("Sorry... Page can not be loaded!");
+            });
         },
         destroy() {
-            loginEvents.remove();
+            
+            // get object json for destroy the login page
+            const loginObjURL = 'src/jsonData/login.json';
+  
+            const loginPromise = new Promise(((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                        if (this.readyState < 400) {
+                            let loginObj;
+                            try {
+                                loginObj = JSON.parse(xhr.responseText);
+                            } catch(e) {
+                                console.error("hopaaa", e);
+                                reject('error');
+                            }
+                            resolve(loginObj);
+                        }
+                        else {
+                            reject('Something went terribly wrong!:((');
+                        }
+                    }
+                };
+                xhr.open('GET', loginObjURL, true);
+                xhr.send();
+            }));
+
+            loginPromise.then((data) => {
+                const loginEvents = interview.eventsLogin(data);
+                loginEvents.remove();
+            });
         }
     }
 };

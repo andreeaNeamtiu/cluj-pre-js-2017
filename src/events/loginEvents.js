@@ -1,4 +1,5 @@
-interview.eventsLogin = function () {
+interview.eventsLogin = function (options) {
+    const jsonObj = options || {};
     const firstPage = function () {
         interview.modules.evaluations.init();
     };
@@ -8,8 +9,8 @@ interview.eventsLogin = function () {
         e.preventDefault();
         const usernameLogin = document.getElementById('loginUsername').value;
         const passwordLogin = document.getElementById('loginPassword').value;
-
-        if (usernameLogin === 'a' && passwordLogin === 'a') {
+        console.log(jsonObj);
+        if (usernameLogin === jsonObj.username && passwordLogin === jsonObj.password) {
             sessionStorage.userLogged = 'Andreea';
             firstPage();
         }
