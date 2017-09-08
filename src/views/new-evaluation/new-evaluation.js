@@ -1,39 +1,5 @@
 interview.newEvaluationPage = function (options) {
-    const newOptions = options || {};
-
-    // get object json for rendering the page
-    const newEvaluationObjURL = '../jsonData/newEvaluation.json';
-
-    const newEvaluationPromise = new Promise(((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (this.readyState === 4) {
-                if (this.readyState < 400) {
-                    let newEvaluationObj;
-                    try {
-                        newEvaluationObj = JSON.parse(xhr.responseText);
-                    } catch(e) {
-                        console.error("hopaaa", e);
-                        reject('error');
-                    }
-                    resolve(newEvaluationObj);
-                }
-                else {
-                    reject('Something went terribly wrong!:((');
-                }
-            }
-        };
-        xhr.open('GET', newEvaluationObjURL);
-        xhr.send();
-    }));
-
-    newEvaluationPromise.then((data) => {
-        jsonObj = newEvaluationObj; // this is probabily not good
-    }).catch((error) => {
-        
-    });
-
-    let jsonObj = {}
+    const jsonObj = options || {};
 
     // page elements
     function newEvaluationBody(options = {}) {
